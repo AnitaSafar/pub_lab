@@ -22,3 +22,9 @@ class TestCustomer(unittest.TestCase):
         new_pub = Pub("The Chanter", 300, [])
         self.customer.buy_drink(new_drink, new_pub)
         self.assertEqual(17, self.customer.wallet)
+
+    def test_buy_drink_changes_till(self):
+        new_drink = Drinks("beer", 3)
+        new_pub = Pub("The Chanter", 300, [])
+        self.customer.buy_drink(new_drink, new_pub)
+        self.assertEqual(303, new_pub.till)
