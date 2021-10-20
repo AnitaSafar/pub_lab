@@ -10,3 +10,5 @@ class Pub:
     def check_age(self, customer):
         return customer.age >= 18
 
+    def check_drunkenness(self, customer):
+        return customer.drunkenness > 5
