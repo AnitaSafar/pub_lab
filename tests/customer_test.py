@@ -2,6 +2,7 @@ import unittest
 from src.customer import Customer
 from src.drinks import Drinks
 from src.pub import Pub
+from src.food import Food
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):

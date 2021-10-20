@@ -1,8 +1,9 @@
 class Pub:
-    def __init__(self, name, till, drinks):
+    def __init__(self, name, till, drinks, stock):
         self.name = name
         self.till = till
         self.drinks = drinks
+        self.stock = stock
 
     def increase_till(self, amount):
         self.till += amount
@@ -23,3 +24,9 @@ class Pub:
             self.till += drink.price
             customer.drunkenness += drink.alcohol_level
         return "Leave pub!"
+
+    def buy_food(self, food, customer):
+        if customer.drunkenness >= food.rejuvenation_level:
+            customer.drunkenness -= food.rejuvenation_level
+        else:
+            customer.drunkenness = 0
