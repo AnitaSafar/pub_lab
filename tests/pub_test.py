@@ -7,3 +7,9 @@ class TestPub(unittest.TestCase):
 
     def test_pub_has_name(self):
         self.assertEqual("The Chanter", self.pub.name)
+
+    def test_pub_has_till(self):
+        self.assertEqual(300, self.pub.till)
+
+    def test_pub_has_drinks(self):
+        self.assertEqual([], self.pub.drinks)
