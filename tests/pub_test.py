@@ -40,3 +40,28 @@ class TestPub(unittest.TestCase):
         new_customer = Customer("John", 20, 17)
         drunk_check = self.pub.check_drunkenness(new_customer)
         self.assertEqual("Serve..", drunk_check)
+
+    def test_buy_drink(self):
+        new_drink = Drinks("beer", 3, 1)
+        new_customer = Customer("John", 20, 18)
+        self.pub.buy_drink(new_drink, new_customer)
+        self.assertEqual(17, new_customer.wallet)
+
+    def test_buy_drink_changes_till(self):
+        new_drink = Drinks("beer", 3, 1)
+        new_customer = Customer("John", 20, 18)
+        self.pub.buy_drink(new_drink, new_customer)
+        self.assertEqual(303, self.pub.till)
+
+    def test_buy_drink_changes_drunkenness(self):
+        new_drink = Drinks("beer", 3, 1)
+        new_customer = Customer("John", 20, 18)
+        self.pub.buy_drink(new_drink, new_customer)
+        self.assertEqual(1, new_customer.drunkenness)
+
+    def test_buy_drink_young_and_drunk(self):
+        new_drink = Drinks("beer", 3, 1)
+        new_customer = Customer("John", 20, 17)
+        new_customer.drunkenness = 6
+        result = self.pub.buy_drink(new_drink, new_customer)
+        self.assertEqual("Leave pub!", result)

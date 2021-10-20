@@ -17,25 +17,9 @@ class TestCustomer(unittest.TestCase):
         self.customer.reduce_wallet(3)
         self.assertEqual(17, self.customer.wallet)
 
-    def test_buy_drink(self):
-        new_drink = Drinks("beer", 3, 1)
-        new_pub = Pub("The Chanter", 300, [])
-        self.customer.buy_drink(new_drink, new_pub)
-        self.assertEqual(17, self.customer.wallet)
-
-    def test_buy_drink_changes_till(self):
-        new_drink = Drinks("beer", 3, 1)
-        new_pub = Pub("The Chanter", 300, [])
-        self.customer.buy_drink(new_drink, new_pub)
-        self.assertEqual(303, new_pub.till)
-
     def test_customer_has_age(self):
         self.assertEqual(18, self.customer.age)
 
-    def test_buy_drink_changes_drunkenness(self):
-        new_drink = Drinks("beer", 3, 1)
-        new_pub = Pub("The Chanter", 300, [])
-        self.customer.buy_drink(new_drink, new_pub)
-        self.assertEqual(1, self.customer.drunkenness)
+    
 
     

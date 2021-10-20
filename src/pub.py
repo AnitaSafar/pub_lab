@@ -16,3 +16,10 @@ class Pub:
         if customer.drunkenness > 5:
             return "Refuse!!"
         return "Serve.."
+
+    def buy_drink(self, drink, customer):
+        if self.check_age(customer) == "Old enough" and self.check_drunkenness(customer) == "Serve..":
+            customer.wallet -= drink.price
+            self.till += drink.price
+            customer.drunkenness += drink.alcohol_level
+        return "Leave pub!"
