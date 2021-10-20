@@ -8,7 +8,11 @@ class Pub:
         self.till += amount
 
     def check_age(self, customer):
-        return customer.age >= 18
+        if customer.age >= 18:
+            return "Old enough"
+        return "Too young"
 
     def check_drunkenness(self, customer):
-        return customer.drunkenness > 5
+        if customer.drunkenness > 5:
+            return "Refuse!!"
+        return "Serve.."
