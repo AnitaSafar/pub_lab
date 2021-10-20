@@ -13,3 +13,7 @@ class TestPub(unittest.TestCase):
 
     def test_pub_has_drinks(self):
         self.assertEqual([], self.pub.drinks)
+
+    def test_increase_till(self):
+        self.pub.increase_till(3)
+        self.assertEqual(303, self.pub.till)
