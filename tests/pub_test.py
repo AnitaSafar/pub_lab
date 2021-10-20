@@ -19,3 +19,13 @@ class TestPub(unittest.TestCase):
     def test_increase_till(self):
         self.pub.increase_till(3)
         self.assertEqual(303, self.pub.till)
+
+    def test_check_age_true(self):
+        new_customer = Customer("John", 20, 18)
+        pub_check = self.pub.check_age(new_customer)
+        self.assertEqual(True, pub_check)
+
+    def test_check_age_false(self):
+        new_customer = Customer("John", 20, 17)
+        pub_check = self.pub.check_age(new_customer)
+        self.assertEqual(False, pub_check)
